@@ -2,25 +2,26 @@
     <img src="assets/logo.png" style="width: 300px;" alt="">
 </div>>
 
-<p class="text-center"><img src="assets/pok.png" alt=""
-*ngFor="let pokemon of pokemons" style="width: 50px"
-[title]="pokemon.name"></p>
-<p class="text-muted text-center">Vous disposé de 
+<p class="text-center"><img src="assets/pok.png" alt="" *ngFor="let pokemon of pokemons" style="width: 50px"
+        [title]="pokemon.name"></p>
+<p class="text-muted text-center">Vous disposé de
     {{pokemons.length}}</p>
 
 
 <section class="col-md-8 mx-auto">
     <div class="row">
-        <div class="col-md-2  card" *ngFor = "let pokemon of pokemons"><!--Va me chercher-->
-            <img [src]="pokemon.picture" alt="">
-        <div class="card-body">
-        <p>{{pokemon.id}}</p>
-        <p>{{pokemon.name}}</p>
-        <p>{{pokemon.type}}</p>
-        <p>{{pokemon.life}}</p>
-        <p>{{pokemon.created | date:"dd/MM/yyyy"}}</p>
-        </div>
+        <div class="col-md-12  card" *ngFor="let pokemon of pokemons">
+            <!--Va me chercher-->
+            <a [routerLink]="['detail',pokemon.id]">
+                <img [src]="pokemon.picture" alt="">
+                <div class="card-body">
+                    <p>{{pokemon.id}}</p>
+                    <p>{{pokemon.name}}</p>
+                    <p>{{pokemon.type}}</p>
+                    <p>{{pokemon.life}}</p>
+                    <p>{{pokemon.created | date:"dd/MM/yyyy"}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </section>
-
